@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://bvp0oy6d34s7n"]
+
+[ext_resource type="Script" uid="uid://oj7hj4kgw31t" path="res://survivor_game.gd" id="1_kbdm8"]
+[ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="1_wkcnj"]
+[ext_resource type="PackedScene" uid="uid://dq3r015sr1uql" path="res://pine_tree.tscn" id="2_8id3q"]
+
+[sub_resource type="FontVariation" id="FontVariation_5mrb7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbdm8"]
+bg_color = Color(0, 0.47843137, 0.7647059, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.61290187, 0.7404079, 1, 0.6)
+shadow_size = 8
+
+[sub_resource type="Curve2D" id="Curve2D_5mrb7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -91, -86, 0, 0, 0, 0, 2010, -107, 0, 0, 0, 0, 1983, 1179, 0, 0, 0, 0, -106, 1191, 0, 0, 0, 0, -93, -84)
+}
+point_count = 5
+
+[sub_resource type="FontFile" id="FontFile_cqk17"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/38/0/ascent = 0.0
+cache/0/38/0/descent = 0.0
+cache/0/38/0/underline_position = 0.0
+cache/0/38/0/underline_thickness = 0.0
+cache/0/38/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+
+[node name="Game" type="Node2D" unique_id=283566082]
+y_sort_enabled = true
+script = ExtResource("1_kbdm8")
+
+[node name="GameTime" type="Timer" parent="." unique_id=1573330450]
+unique_name_in_owner = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=902231489]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1528465415]
+offset_right = 1931.0
+offset_bottom = 1106.0
+
+[node name="Player" parent="." unique_id=986531861 instance=ExtResource("1_wkcnj")]
+position = Vector2(968, 562)
+
+[node name="TimerLabel" type="Label" parent="Player" unique_id=510169124]
+unique_name_in_owner = true
+offset_left = -907.0
+offset_top = -512.0
+offset_right = -658.0
+offset_bottom = -428.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_5mrb7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_kbdm8")
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path2D" type="Path2D" parent="Player" unique_id=247371393]
+position = Vector2(-968, -562)
+curve = SubResource("Curve2D_5mrb7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D" unique_id=1506207031]
+unique_name_in_owner = true
+position = Vector2(-91, -86)
+rotation = -0.009994907
+
+[node name="PineTree6" parent="." unique_id=48611546 instance=ExtResource("2_8id3q")]
+position = Vector2(2804, 1306)
+
+[node name="PineTree" parent="." unique_id=1661263651 instance=ExtResource("2_8id3q")]
+position = Vector2(1357, 534)
+
+[node name="PineTree2" parent="." unique_id=869171690 instance=ExtResource("2_8id3q")]
+position = Vector2(743, 868)
+
+[node name="PineTree3" parent="." unique_id=2034035595 instance=ExtResource("2_8id3q")]
+position = Vector2(1007, 208)
+
+[node name="PineTree4" parent="." unique_id=539374912 instance=ExtResource("2_8id3q")]
+position = Vector2(1207, 743)
+
+[node name="PineTree7" parent="." unique_id=1044938090 instance=ExtResource("2_8id3q")]
+position = Vector2(1481, 915)
+
+[node name="PineTree8" parent="." unique_id=1559729505 instance=ExtResource("2_8id3q")]
+position = Vector2(371, 627)
+
+[node name="PineTree5" parent="." unique_id=503670866 instance=ExtResource("2_8id3q")]
+position = Vector2(640, 581)
+
+[node name="Timer" type="Timer" parent="." unique_id=699398425]
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=1903585551]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=448561259]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7607843)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect" unique_id=214577654]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -67.0
+offset_right = 276.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontFile_cqk17")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+
+[connection signal="timeout" from="GameTime" to="." method="_on_game_time_timeout"]
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,14 @@
+# Godot 4+
+.godot/
+
+# Export / build artifacts
+*.exe
+*.pck
+*.dll
+*.so
+*.dylib
+*.apk
+*.aab
+*.zip
+*.x86_64
+*.app
